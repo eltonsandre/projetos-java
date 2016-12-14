@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:j="http://xmlns.jcp.org/jsf" xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html">
+<h:head>
+	<meta charset="UTF-8" />
+	<link j:library="bootstrap" j:name="bootstrap.min.css" />
+	<link j:library="css" j:name="db1-style.css" />
+</h:head>
+
+<h:body>
+	<h:form id="form" style="margin-top: 20px;">
+
+		<div class="container-fluid">
+			<div class="panel panel-info">
+
+				<div class="panel-body">
+					<label class="db1-label-top">AVALIADOR DE SEGURANÇA DE SENHA</label>
+					<div class="well">
+						<div class="row">
+							<div class="col-sm-4">
+								<div class="form-group">
+									<input type="password" class="form-control" j:value="#{avaliadorSegurancaController.senha}" placeholder="Senha"
+										autocomplete="off">
+										<f:ajax event="keyup" listener="#{avaliadorSegurancaController.avaliarSenha}" execute="@form"
+											render="perc_ID complex_ID" />
+									</input>
+								</div>
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="col-sm-4">
+								<div class="form-group">
+									<label j:id="perc_ID" class="label label-default">#{avaliadorSegurancaController.percentadem}%</label>
+									 <label j:id="complex_ID" class="label #{avaliadorSegurancaController.complexidade.style}">
+										#{avaliadorSegurancaController.complexidade.descricao}</label>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</h:form>
+
+</h:body>
+</html>
